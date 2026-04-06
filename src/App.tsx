@@ -1,34 +1,70 @@
 import { useEffect } from 'react'
 import { HashRouter, Routes, Route, useNavigate, useParams, Navigate } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { usePortfolioStore } from './store/usePortfolioStore'
 import { companies, companyOrder } from './data/companies'
+import { ErrorBoundary } from './components/shared/ErrorBoundary'
+import { HeroSection } from './components/landing/HeroSection'
+import { CompanyOrbit } from './components/landing/CompanyOrbit'
+import { AboutSection } from './components/landing/AboutSection'
+import { SkillsSection } from './components/landing/SkillsSection'
+import { ContactSection } from './components/landing/ContactSection'
 import type { CompanyId } from './types'
 
-// Placeholder shells — replaced in Phase 4
+// Phase 4 shells will be imported here. Placeholders for now.
 function PlaceholderShell({ companyId }: { companyId: CompanyId }) {
   const company = companies[companyId]
   return (
-    <div data-testid={`shell-${companyId}`} style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: company.brandPrimary, color: company.brandAccent }}>
-      <div style={{ textAlign: 'center' }}>
-        <h1>{company.name}</h1>
-        <p>{company.role}</p>
-        <BackButton />
-      </div>
-    </div>
+    <motion.div
+      data-testid={`shell-${companyId}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: company.brandPrimary,
+        color: company.brandAccent,
+        flexDirection: 'column',
+        gap: '1rem',
+        fontFamily: 'system-ui, sans-serif',
+      }}
+    >
+      <h1 style={{ fontSize: '2rem', fontWeight: 700, margin: 0 }}>{company.name}</h1>
+      <p style={{ margin: 0, opacity: 0.7 }}>{company.role} — {company.startDate} to {company.endDate}</p>
+      <BackButton color={company.brandAccent} />
+    </motion.div>
   )
 }
 
-function BackButton() {
-  const setActiveCompany = usePortfolioStore(s => s.setActiveCompany)
+function BackButton({ color = '#ffffff' }: { color?: string }) {
   const navigate = useNavigate()
+  const setActiveCompany = usePortfolioStore(s => s.setActiveCompany)
+
   const handleBack = () => {
     setActiveCompany(null)
     navigate('/')
   }
+
   return (
-    <button data-testid="back-button" onClick={handleBack}>
-      Back
+    <button
+      data-testid="back-button"
+      onClick={handleBack}
+      style={{
+        marginTop: '1rem',
+        padding: '0.625rem 1.5rem',
+        background: 'rgba(0,0,0,0.2)',
+        border: `1px solid ${color}`,
+        borderRadius: '6px',
+        color,
+        cursor: 'pointer',
+        fontSize: '0.9375rem',
+      }}
+    >
+      ← Back
     </button>
   )
 }
@@ -36,6 +72,7 @@ function BackButton() {
 function CompanyRoute() {
   const { companyId } = useParams<{ companyId: string }>()
   const setActiveCompany = usePortfolioStore(s => s.setActiveCompany)
+  const endTransition = usePortfolioStore(s => s.endTransition)
 
   useEffect(() => {
     if (companyId && companyOrder.includes(companyId as CompanyId)) {
@@ -47,41 +84,32 @@ function CompanyRoute() {
     return <Navigate to="/" replace />
   }
 
-  return <PlaceholderShell companyId={companyId as CompanyId} />
+  return (
+    <ErrorBoundary>
+      <PlaceholderShell companyId={companyId as CompanyId} />
+    </ErrorBoundary>
+  )
 }
 
 function LandingPage() {
-  const navigate = useNavigate()
-  const setActiveCompany = usePortfolioStore(s => s.setActiveCompany)
-
-  const handleCompanyClick = (id: CompanyId) => {
-    setActiveCompany(id)
-    navigate(`/${id}`)
-  }
-
   return (
-    <div data-testid="landing-page" style={{ minHeight: '100vh', padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
-      <h1>Praneeth Papishetty</h1>
-      <p>Staff Engineer at Slack</p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2rem' }}>
-        {companyOrder.map(id => (
-          <button
-            key={id}
-            data-testid={`company-card-${id}`}
-            onClick={() => handleCompanyClick(id)}
-            style={{ background: companies[id].brandPrimary, color: companies[id].brandAccent, padding: '1rem', border: 'none', borderRadius: '8px', cursor: 'pointer' }}
-          >
-            {companies[id].name}
-          </button>
-        ))}
-      </div>
-    </div>
+    <motion.div
+      data-testid="landing-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <HeroSection />
+      <CompanyOrbit />
+      <AboutSection />
+      <SkillsSection />
+      <ContactSection />
+    </motion.div>
   )
 }
 
 function AppRoutes() {
-  const activeCompany = usePortfolioStore(s => s.activeCompany)
-
   return (
     <AnimatePresence mode="wait">
       <Routes>
