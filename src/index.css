@@ -12,3 +12,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Mobile: single-column company grid */
+@media (max-width: 480px) {
+  .company-orbit-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile: stack rental booking bar */
+@media (max-width: 560px) {
+  .rental-booking-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rental-booking-input {
+    width: 100%;
+  }
+}
+
+/* Mobile: AT&T single-column stat cards */
+@media (max-width: 480px) {
+  .att-account-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -96,7 +96,7 @@ export function CompanyOrbit() {
           Click any company to see my work in their UI style.
         </p>
 
-        <div style={{
+        <div className="company-orbit-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gap: '1rem',
