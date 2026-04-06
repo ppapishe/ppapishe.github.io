@@ -1,0 +1,65 @@
+/* AT&T theme — structural layout only */
+.att-shell {
+  min-height: 100vh;
+  font-family: 'ATTAleckSans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.att-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 64px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.att-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.att-account-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.att-account-card {
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid;
+}
+
+.att-section {
+  margin-bottom: 2rem;
+}
+
+.att-section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid;
+}
+
+.att-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.att-tech-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.att-tech-category {
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid;
+}
