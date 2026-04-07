@@ -4,6 +4,42 @@ import { companies, companyOrder } from '../../data/companies'
 import { usePortfolioStore } from '../../store/usePortfolioStore'
 import type { CompanyId } from '../../types'
 
+function EducationCard() {
+  const navigate = useNavigate()
+  return (
+    <motion.button
+      onClick={() => navigate('/education')}
+      whileHover={{ scale: 1.03, y: -4 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.2 }}
+      style={{
+        background: '#f9f7f4',
+        color: '#111111',
+        border: '1px solid #e5e7eb',
+        borderRadius: '12px',
+        padding: '1.75rem',
+        cursor: 'pointer',
+        textAlign: 'left',
+        width: '100%',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ fontSize: '1.375rem', fontWeight: 700, marginBottom: '0.25rem' }}>Education</div>
+      <div style={{ fontSize: '0.875rem', color: '#666', marginBottom: '0.75rem' }}>
+        MS Information System Technology
+      </div>
+      <div style={{ fontSize: '0.75rem', color: '#999' }}>
+        Wilmington University · WKU · Certifications
+      </div>
+      <div style={{ marginTop: '1rem', fontSize: '0.75rem', color: '#999', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+        <span>View background</span>
+        <span>→</span>
+      </div>
+    </motion.button>
+  )
+}
+
 function formatDateRange(start: string, end: string | 'present') {
   const startYear = start.split('-')[0]
   const endYear = end === 'present' ? 'Present' : end.split('-')[0]
@@ -112,6 +148,14 @@ export function CompanyOrbit() {
               <CompanyCard id={id} />
             </motion.div>
           ))}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: companyOrder.length * 0.08 }}
+          >
+            <EducationCard />
+          </motion.div>
         </div>
       </motion.div>
     </section>

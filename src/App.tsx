@@ -12,6 +12,7 @@ import { SlackShell } from './components/themes/slack/SlackShell'
 import { HBOMaxShell } from './components/themes/hbomax/HBOMaxShell'
 import { ATTShell } from './components/themes/att/ATTShell'
 import { RentalShell } from './components/themes/rental/RentalShell'
+import { EducationShell } from './components/themes/education/EducationShell'
 import type { CompanyId } from './types'
 
 const shellMap: Record<CompanyId, React.ComponentType> = {
@@ -65,6 +66,11 @@ function AppRoutes() {
     <AnimatePresence mode="wait">
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/education" element={
+          <ErrorBoundary>
+            <EducationShell />
+          </ErrorBoundary>
+        } />
         <Route path="/:companyId" element={<CompanyRoute />} />
       </Routes>
     </AnimatePresence>
