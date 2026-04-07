@@ -1,70 +1,104 @@
 import { motion } from 'framer-motion'
 import { personal } from '../../data/personal'
 
+// Show first two non-TODO bio paragraphs
+function getBio() {
+  return personal.bio.filter(p => !p.startsWith('TODO')).slice(0, 2)
+}
+
 export function HeroSection() {
+  const bio = getBio()
+
   return (
     <section style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      padding: '2rem',
-      background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%)',
-      color: '#ffffff',
+      padding: 'clamp(4rem, 10vw, 8rem) clamp(1.5rem, 6vw, 4rem) clamp(3rem, 6vw, 5rem)',
+      background: '#f9f7f4',
+      color: '#111111',
     }}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
+        style={{ maxWidth: '720px' }}
       >
-        <div style={{
-          width: '96px',
-          height: '96px',
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #611f69, #1264a3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: '0 auto 1.5rem',
-          fontSize: '2.5rem',
+        {/* Role line above name */}
+        <p style={{
+          fontSize: '0.6875rem',
           fontWeight: 700,
-          color: '#ffffff',
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          color: '#999999',
+          margin: '0 0 0.75rem',
         }}>
-          PP
-        </div>
+          Senior Software Engineer · Slack · Datastores
+        </p>
 
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 800, margin: '0 0 0.5rem', letterSpacing: '-0.02em' }}>
+        {/* Name */}
+        <h1 style={{
+          fontSize: 'clamp(2.5rem, 7vw, 4.5rem)',
+          fontWeight: 900,
+          letterSpacing: '-0.04em',
+          lineHeight: 1.0,
+          margin: '0 0 1.25rem',
+          color: '#111111',
+        }}>
           {personal.name}
         </h1>
 
-        <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', color: '#a0aec0', margin: '0 0 2rem' }}>
-          {personal.title}
-        </p>
+        {/* Bio */}
+        {bio.length > 0 && (
+          <div style={{ marginBottom: '1.75rem', maxWidth: '560px' }}>
+            {bio.map((paragraph, i) => (
+              <p key={i} style={{
+                margin: i < bio.length - 1 ? '0 0 0.75rem' : '0',
+                fontSize: '1rem',
+                lineHeight: 1.65,
+                color: '#555555',
+              }}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        )}
 
-        <a href="#orbit" style={{
-          display: 'inline-block',
-          padding: '0.75rem 2rem',
-          background: 'rgba(255,255,255,0.1)',
-          border: '1px solid rgba(255,255,255,0.2)',
-          borderRadius: '9999px',
-          color: '#ffffff',
-          textDecoration: 'none',
-          fontSize: '0.9375rem',
-          transition: 'background 0.2s',
-        }}>
-          View my work
-        </a>
-      </motion.div>
+        {/* CTAs */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+          <a
+            href="#orbit"
+            style={{
+              fontSize: '0.9375rem',
+              fontWeight: 600,
+              color: '#111111',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.375rem',
+            }}
+          >
+            <span>↓</span>
+            <span>My work</span>
+          </a>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.5 }}
-        style={{ position: 'absolute', bottom: '2rem', fontSize: '1.5rem' }}
-      >
-        ↓
+          <div style={{ width: '1px', height: '1rem', background: '#ddd' }} />
+
+          <a
+            href={personal.linkedIn}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: '0.875rem', color: '#888', textDecoration: 'none' }}
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href={personal.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: '0.875rem', color: '#888', textDecoration: 'none' }}
+          >
+            GitHub
+          </a>
+        </div>
       </motion.div>
     </section>
   )

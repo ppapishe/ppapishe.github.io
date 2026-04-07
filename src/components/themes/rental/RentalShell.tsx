@@ -7,8 +7,8 @@ import '../../../styles/themes/rental.css'
 
 const company = companies.rental
 
-const ORANGE = company.brandPrimary   // #e8a200
-const RED = company.brandSecondary    // #cc2500
+const YELLOW = company.brandPrimary   // #FFB81C (Hertz yellow)
+const BLACK = company.brandSecondary  // #1a1a1a
 const TEXT = '#1a1a1a'
 const TEXT_DIM = '#6b7280'
 const BORDER = '#e5e7eb'
@@ -25,7 +25,7 @@ export function RentalShell() {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.92, opacity: 0 }}
       transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-      style={{ '--brand-primary': ORANGE, '--brand-secondary': RED } as React.CSSProperties}
+      style={{ '--brand-primary': YELLOW, '--brand-secondary': BLACK } as React.CSSProperties}
     >
       {/* Hero */}
       <div className="rental-hero">
@@ -72,7 +72,7 @@ export function RentalShell() {
               <div className="rental-booking-label" style={{ color: '#fff' }}>To</div>
               <div className="rental-booking-input">{endYear}</div>
             </div>
-            <div style={{ padding: '0.5rem 1.25rem', background: RED, color: '#fff', borderRadius: '4px', fontWeight: 700, fontSize: '0.9375rem', cursor: 'default' }}>
+            <div style={{ padding: '0.5rem 1.25rem', background: BLACK, color: '#fff', borderRadius: '4px', fontWeight: 700, fontSize: '0.9375rem', cursor: 'default' }}>
               View Fleet
             </div>
           </div>
@@ -101,7 +101,7 @@ export function RentalShell() {
                 >
                   <div
                     className="rental-car-image"
-                    style={{ background: `linear-gradient(135deg, ${ORANGE}30, ${RED}20)` }}
+                    style={{ background: `linear-gradient(135deg, ${YELLOW}30, ${BLACK}20)` }}
                   >
                     🚗
                   </div>
@@ -109,9 +109,9 @@ export function RentalShell() {
                     <div style={{ fontWeight: 700, marginBottom: '0.25rem', color: TEXT }}>{project.title}</div>
                     <p style={{ fontSize: '0.8125rem', color: TEXT_DIM, margin: '0 0 0.625rem', lineHeight: 1.5 }}>{project.description}</p>
                     {project.impact.length > 0 && (
-                      <div style={{ fontSize: '0.8125rem', color: ORANGE, fontWeight: 600, marginBottom: '0.5rem' }}>{project.impact[0]}</div>
+                      <div style={{ fontSize: '0.8125rem', color: YELLOW, fontWeight: 600, marginBottom: '0.5rem' }}>{project.impact[0]}</div>
                     )}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', color: RED }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', color: BLACK }}>
                       {project.techStack.map(t => <TechBadge key={t} label={t} style={{ fontSize: '0.6875rem', padding: '0.125rem 0.5rem' }} />)}
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export function RentalShell() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
               {company.techStack.map(cat => (
                 <div key={cat.category}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: ORANGE, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.375rem' }}>{cat.category}</div>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: YELLOW, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.375rem' }}>{cat.category}</div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', color: TEXT }}>
                     {cat.items.map(item => <TechBadge key={item} label={item} style={{ borderColor: BORDER, fontSize: '0.75rem' }} />)}
                   </div>

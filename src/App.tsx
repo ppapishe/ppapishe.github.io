@@ -6,7 +6,6 @@ import { companyOrder } from './data/companies'
 import { ErrorBoundary } from './components/shared/ErrorBoundary'
 import { HeroSection } from './components/landing/HeroSection'
 import { CompanyOrbit } from './components/landing/CompanyOrbit'
-import { AboutSection } from './components/landing/AboutSection'
 import { SkillsSection } from './components/landing/SkillsSection'
 import { ContactSection } from './components/landing/ContactSection'
 import { SlackShell } from './components/themes/slack/SlackShell'
@@ -55,7 +54,6 @@ function LandingPage() {
     >
       <HeroSection />
       <CompanyOrbit />
-      <AboutSection />
       <SkillsSection />
       <ContactSection />
     </motion.div>

@@ -67,7 +67,7 @@ function CompanyCard({ id }: { id: CompanyId }) {
           alignItems: 'center',
           gap: '0.375rem',
         }}>
-          <span>View in {company.name} UI</span>
+          <span>Enter {company.name}</span>
           <span>→</span>
         </div>
       </div>

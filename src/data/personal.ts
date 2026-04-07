@@ -2,7 +2,7 @@ import type { PersonalData } from '../types'
 
 export const personal: PersonalData = {
   name: 'Praneeth Papishetty',
-  title: 'Staff Engineer at Slack',
+  title: 'Senior Software Engineer at Slack',
   location: 'Remote',
   bio: [
     'I started my career as an Oracle Database Administrator and worked my way up to database reliability engineering. I\'m passionate about datastores, distributed systems, and automation.',
