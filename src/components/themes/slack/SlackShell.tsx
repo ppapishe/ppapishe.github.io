@@ -215,10 +215,29 @@ export function SlackShell() {
           ))}
         </div>
 
-        {/* Footer */}
-        <div style={{ padding: '0.75rem 0.875rem', borderTop: `1px solid rgba(255,255,255,0.1)`, fontSize: '0.8125rem', color: TEXT_DIM }}>
-          <div style={{ fontWeight: 600, color: TEXT }}>{personal.name}</div>
-          <div style={{ fontSize: '0.75rem', opacity: 0.6 }}>{company.role}</div>
+        {/* Footer — profile row like Slack's bottom-left */}
+        <div style={{ padding: '0.625rem 0.875rem', borderTop: `1px solid rgba(255,255,255,0.1)`, display: 'flex', alignItems: 'center', gap: '0.625rem', cursor: 'default' }}>
+          {/* Avatar with green presence dot */}
+          <div style={{ position: 'relative', flexShrink: 0 }}>
+            <div style={{
+              width: '32px', height: '32px', borderRadius: '6px',
+              background: 'linear-gradient(135deg, #ecb22e, #e01e5a)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '0.75rem', fontWeight: 700, color: '#fff',
+            }}>PP</div>
+            <div style={{
+              position: 'absolute', bottom: '-2px', right: '-2px',
+              width: '10px', height: '10px', borderRadius: '50%',
+              background: '#2bac76',
+              border: `2px solid ${BG_DARK}`,
+            }} />
+          </div>
+          <div style={{ overflow: 'hidden', flex: 1 }}>
+            <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: TEXT, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{personal.name}</div>
+            <div style={{ fontSize: '0.6875rem', color: TEXT_DIM, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              <span style={{ color: '#2bac76' }}>●</span> Active
+            </div>
+          </div>
         </div>
       </div>
 
