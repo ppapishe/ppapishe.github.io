@@ -4,10 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { usePortfolioStore } from './store/usePortfolioStore'
 import { companyOrder } from './data/companies'
 import { ErrorBoundary } from './components/shared/ErrorBoundary'
-import { HeroSection } from './components/landing/HeroSection'
-import { CompanyOrbit } from './components/landing/CompanyOrbit'
-import { SkillsSection } from './components/landing/SkillsSection'
-import { ContactSection } from './components/landing/ContactSection'
+import { UnifiedPortfolio } from './components/unified/UnifiedPortfolio'
 import { SlackShell } from './components/themes/slack/SlackShell'
 import { HBOMaxShell } from './components/themes/hbomax/HBOMaxShell'
 import { ATTShell } from './components/themes/att/ATTShell'
@@ -44,28 +41,11 @@ function CompanyRoute() {
   )
 }
 
-function LandingPage() {
-  return (
-    <motion.div
-      data-testid="landing-page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      <HeroSection />
-      <CompanyOrbit />
-      <SkillsSection />
-      <ContactSection />
-    </motion.div>
-  )
-}
-
 function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<UnifiedPortfolio />} />
         <Route path="/education" element={
           <ErrorBoundary>
             <EducationShell />

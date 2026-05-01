@@ -1,5 +1,10 @@
 export type CompanyId = 'slack' | 'hbomax' | 'att' | 'rental'
 
+export interface ImpactStat {
+  value: string
+  label: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -9,6 +14,13 @@ export interface Project {
   techStack: string[]
   teamSize?: number
   duration?: string
+  /** Expanded detail fields for unified portfolio view */
+  lede?: string
+  bullets?: string[]
+  impactStats?: ImpactStat[]
+  roleDetail?: string
+  stackDetail?: string
+  status?: string
 }
 
 export interface TechCategory {

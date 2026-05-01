@@ -10,66 +10,56 @@ beforeEach(() => {
   window.location.hash = ''
 })
 
-describe('App routing', () => {
-  it('renders landing page by default', () => {
+describe('Unified portfolio', () => {
+  it('renders the unified portfolio by default', () => {
     render(<App />)
-    expect(screen.getByTestId('landing-page')).toBeDefined()
+    expect(screen.getByText('Praneeth Papishetty')).toBeDefined()
+    expect(screen.getByText(/Vitess & MySQL/)).toBeDefined()
   })
 
-  it('clicking Slack card navigates to slack shell', async () => {
+  it('renders all four era sections', () => {
+    render(<App />)
+    expect(screen.getAllByText(/Slack · Datastores/).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Warner Bros. Discovery/).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/AT&T/).length).toBeGreaterThan(0)
+    expect(screen.getByText(/Dollar Thrifty → Hertz/)).toBeDefined()
+  })
+
+  it('renders project cards for each era', () => {
+    render(<App />)
+    expect(screen.getByText('Vitess Fleet Operations')).toBeDefined()
+    expect(screen.getByText('DIM — Database Infra Manager')).toBeDefined()
+    expect(screen.getByText('Replication Monitoring')).toBeDefined()
+    expect(screen.getByText('Core Reservations DB')).toBeDefined()
+  })
+
+  it('expands project card on click', async () => {
     const user = userEvent.setup()
     render(<App />)
-    await user.click(screen.getByTestId('company-card-slack'))
-    await waitFor(() => {
-      expect(screen.getByTestId('shell-slack')).toBeDefined()
-    })
+    const btn = screen.getByText('Vitess Fleet Operations').closest('button')!
+    expect(btn.getAttribute('aria-expanded')).toBe('false')
+    await user.click(btn)
+    expect(btn.getAttribute('aria-expanded')).toBe('true')
   })
 
-  it('clicking HBOMax card navigates to hbomax shell', async () => {
-    const user = userEvent.setup()
+  it('renders resume section', () => {
     render(<App />)
-    await user.click(screen.getByTestId('company-card-hbomax'))
-    await waitFor(() => {
-      expect(screen.getByTestId('shell-hbomax')).toBeDefined()
-    })
+    expect(screen.getByText('Grab the PDF')).toBeDefined()
+    expect(screen.getByText('Cassandra Certified Professional')).toBeDefined()
   })
 
-  it('clicking AT&T card navigates to att shell', async () => {
-    const user = userEvent.setup()
+  it('renders social links in header', () => {
     render(<App />)
-    await user.click(screen.getByTestId('company-card-att'))
-    await waitFor(() => {
-      expect(screen.getByTestId('shell-att')).toBeDefined()
-    })
+    expect(screen.getByLabelText('LinkedIn')).toBeDefined()
+    expect(screen.getByLabelText('GitHub')).toBeDefined()
+    expect(screen.getByLabelText('Instagram')).toBeDefined()
   })
 
-  it('clicking Rental card navigates to rental shell', async () => {
-    const user = userEvent.setup()
-    render(<App />)
-    await user.click(screen.getByTestId('company-card-rental'))
-    await waitFor(() => {
-      expect(screen.getByTestId('shell-rental')).toBeDefined()
-    })
-  })
-
-  it('back button returns to landing page', async () => {
-    const user = userEvent.setup()
-    render(<App />)
-    await user.click(screen.getByTestId('company-card-slack'))
-    await waitFor(() => {
-      expect(screen.getByTestId('shell-slack')).toBeDefined()
-    })
-    await user.click(screen.getByTestId('back-button'))
-    await waitFor(() => {
-      expect(screen.getByTestId('landing-page')).toBeDefined()
-    })
-  })
-
-  it('unknown hash route redirects to landing page', async () => {
+  it('unknown hash route redirects to unified portfolio', async () => {
     window.location.hash = '#/unknown-company'
     render(<App />)
     await waitFor(() => {
-      expect(screen.getByTestId('landing-page')).toBeDefined()
+      expect(screen.getByText('Praneeth Papishetty')).toBeDefined()
     })
   })
 })

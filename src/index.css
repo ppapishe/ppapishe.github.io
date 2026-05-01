@@ -9,8 +9,20 @@
 body {
   margin: 0;
   padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Mobile: single-column company grid */

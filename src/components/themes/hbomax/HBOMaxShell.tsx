@@ -206,10 +206,10 @@ export function HBOMaxShell() {
         backdropFilter: 'blur(8px)',
         borderBottom: `1px solid ${BORDER}`,
       }}>
-        {/* HBO max logo */}
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.1rem', marginRight: '2.5rem', flexShrink: 0 }}>
-          <span style={{ fontSize: '1.125rem', fontWeight: 900, color: TEXT, letterSpacing: '-0.01em' }}>HBO</span>
-          <span style={{ fontSize: '0.875rem', fontWeight: 700, color: TEXT_DIM, letterSpacing: '0.02em' }}>max</span>
+        {/* HBO max logo — HBO big/bold on top, max smaller right-aligned below */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 0.9, marginRight: '2.5rem', flexShrink: 0 }}>
+          <span style={{ fontSize: '1.5rem', fontWeight: 900, color: TEXT, letterSpacing: '-0.02em', display: 'block' }}>HBO</span>
+          <span style={{ fontSize: '0.9375rem', fontWeight: 800, color: TEXT, letterSpacing: '-0.01em', display: 'block', marginTop: '0.1rem' }}>max</span>
         </div>
 
         {/* Center nav items */}
