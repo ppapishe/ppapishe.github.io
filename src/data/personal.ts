@@ -2,13 +2,13 @@ import type { PersonalData } from '../types'
 
 export const personal: PersonalData = {
   name: 'Praneeth Papishetty',
-  title: 'Senior Software Engineer at Slack',
+  title: 'Builder · Datastores · Slack',
   location: 'Kirkland, WA',
   bio: [
-    'Started as an Oracle DBA at Dollar Thrifty and worked my way up through database reliability and infrastructure engineering — AT&T, HBO, Warner Bros. Discovery, and now Slack.',
-    'At WBD, built DIM (Database Infra Manager), cutting database provisioning from 3 weeks to 12 hours across 1,200+ Aurora clusters. Now on the Datastores Foundation team at Slack, managing Vitess and MySQL at one of the largest scales in production.',
+    "I build tools for the people who keep production alive. At Warner Bros. Discovery, that meant DIM — a platform that turned a three-week database provisioning ticket into a twelve-hour self-serve flow across 1,200+ Aurora clusters. Now I'm on Slack's Datastores Foundation team, applying the same playbook to Vitess and MySQL at a much louder scale.",
+    'Took the long way in — pharmacy, then chemistry, then databases finally stuck. The work I keep coming back to is the same: spot the friction, ship the tool that eliminates it, move on.',
   ],
-  email: 'praneeth1962@gmail.com',
+  email: 'me@praneethpapishetty.com',
   linkedIn: 'https://www.linkedin.com/in/praneethpapishetty/',
   github: 'https://github.com/ppapishe',
   instagram: 'https://www.instagram.com/praneeth1507/',

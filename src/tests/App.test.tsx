@@ -2,11 +2,8 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from '../App'
-import { usePortfolioStore } from '../store/usePortfolioStore'
 
 beforeEach(() => {
-  usePortfolioStore.setState({ activeCompany: null, isTransitioning: false })
-  // Reset hash to landing
   window.location.hash = ''
 })
 
@@ -27,16 +24,16 @@ describe('Unified portfolio', () => {
 
   it('renders project cards for each era', () => {
     render(<App />)
-    expect(screen.getByText('Vitess Fleet Operations')).toBeDefined()
+    expect(screen.getByText('Vitess Reliability Tooling')).toBeDefined()
     expect(screen.getByText('DIM — Database Infra Manager')).toBeDefined()
-    expect(screen.getByText('Replication Monitoring')).toBeDefined()
-    expect(screen.getByText('Core Reservations DB')).toBeDefined()
+    expect(screen.getByText('AT&T eSUPPORT — Oracle SME')).toBeDefined()
+    expect(screen.getByText('Oracle SME — Reservations Estate')).toBeDefined()
   })
 
   it('expands project card on click', async () => {
     const user = userEvent.setup()
     render(<App />)
-    const btn = screen.getByText('Vitess Fleet Operations').closest('button')!
+    const btn = screen.getByText('Vitess Reliability Tooling').closest('button')!
     expect(btn.getAttribute('aria-expanded')).toBe('false')
     await user.click(btn)
     expect(btn.getAttribute('aria-expanded')).toBe('true')

@@ -86,7 +86,7 @@ body {
 
 /* portrait */
 .u-portrait {
-  width: 220px; height: 280px; border-radius: 8px;
+  width: 300px; height: 400px; border-radius: 8px;
   background: linear-gradient(135deg, #e8e2d5 0%, #d8cfc0 100%);
   position: relative; overflow: hidden;
   box-shadow: 0 1px 0 rgba(10,10,10,0.04), 0 8px 24px rgba(10,10,10,0.06);
@@ -379,6 +379,32 @@ body {
   width: auto; max-width: 80px; padding: 0 7px;
 }
 
+/* ─── blog page ─── */
+.u-blog { min-height: 100vh; }
+.u-back-link {
+  font-size: 13.5px;
+  color: var(--ink-dim);
+  transition: color 160ms ease;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.u-back-link:hover { color: var(--ink); }
+.u-back-link span[aria-hidden] {
+  display: inline-block;
+  transition: transform 160ms ease;
+}
+.u-back-link:hover span[aria-hidden] { transform: translateX(-2px); }
+
+.u-blog-content { padding: 100px 0 120px; }
+.u-blog-title {
+  font-size: clamp(56px, 8vw, 112px);
+  line-height: 0.95; letter-spacing: -0.035em; margin: 28px 0 0;
+  font-weight: 600;
+}
+.u-blog-tagline {
+  margin: 32px 0 0; max-width: 560px;
+  font-size: 16px; line-height: 1.6; color: #3a3a3a;
+}
+
 /* ─── responsive ─── */
 @media (max-width: 1280px) {
   .u-timeline { display: none; }
@@ -386,7 +412,7 @@ body {
 @media (max-width: 900px) {
   .u-era-head { grid-template-columns: 1fr; gap: 16px; }
   .u-hero-grid { grid-template-columns: 1fr; }
-  .u-portrait { width: 160px; height: 200px; }
+  .u-portrait { width: 220px; height: 290px; }
   .u-resume-grid { grid-template-columns: 1fr; }
   .u-about-grid { grid-template-columns: 1fr; }
   .u-wrap { padding: 0 24px; }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { companies, companyOrder, eraDisplayMap } from '../../data/companies'
 import { personal } from '../../data/personal'
 import type { CompanyId, Project } from '../../types'
@@ -47,6 +48,14 @@ function UnifiedHeader() {
           <span className="u-brand-name">Praneeth Papishetty</span>
         </a>
         <div className="u-socials">
+          <Link
+            className="u-social-btn"
+            to="/blog"
+            aria-label="Blog"
+            title="Blog"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h11a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4z"/><line x1="8" y1="9" x2="15" y2="9"/><line x1="8" y1="13" x2="15" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>
+          </Link>
           <a className="u-social-btn" href={personal.linkedIn} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zM8.5 8h4.36v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.48 3.04 5.48 6.99V22h-4.56v-6.62c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22H8.5V8z"/></svg>
           </a>
@@ -219,19 +228,26 @@ function HeroSection() {
     <section className="u-hero u-wrap">
       <div className="u-hero-grid">
         <div>
-          <div className="u-eyebrow">Senior Software Engineer &middot; Slack &middot; Datastores</div>
+          <div className="u-eyebrow">Builder &middot; Datastores &middot; Slack</div>
           <h1>Praneeth<br/>Papishetty<span className="u-dot">.</span></h1>
           {personal.bio.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
           ))}
           <div className="u-hero-links">
-            <a href="#slack" style={{ color: 'var(--ink)', fontWeight: 500 }}>&darr; My work</a>
-            <a href="#resume" style={{ color: 'var(--ink)', fontWeight: 500 }}>&darr; Resume</a>
+            <a
+              href="#slack"
+              style={{ color: 'var(--ink)', fontWeight: 500 }}
+              onClick={(e) => { e.preventDefault(); document.getElementById('slack')?.scrollIntoView({ behavior: 'smooth' }) }}
+            >&darr; My work</a>
+            <a
+              href="#resume"
+              style={{ color: 'var(--ink)', fontWeight: 500 }}
+              onClick={(e) => { e.preventDefault(); document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' }) }}
+            >&darr; Resume</a>
           </div>
         </div>
         <div className="u-portrait" id="portrait">
-          <span className="u-placeholder">PP</span>
-          <div className="u-caption">[ photo placeholder ]</div>
+          <img src="portrait.jpg" alt="Praneeth Papishetty" />
         </div>
       </div>
     </section>
@@ -253,9 +269,13 @@ function ResumeSection() {
           <div className="u-resume-card">
             <h3>Grab the PDF</h3>
             <p>Full work history, certifications, and tech depth &mdash; formatted for recruiters and easy to skim.</p>
-            <a className="u-resume-cta" href="resume.pdf" target="_blank" download>
+            <a className="u-resume-cta" href="resume.pdf" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download Resume
+            </a>
+            <a className="u-resume-cta secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Resume
             </a>
             <a className="u-resume-cta secondary" href={`mailto:${personal.email}?subject=Hi%20Praneeth`}>Get in touch</a>
           </div>
