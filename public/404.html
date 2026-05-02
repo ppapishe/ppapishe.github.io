@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Praneeth Papishetty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // SPA fallback: any unmatched URL gets redirected to the hash-routed equivalent
+  // so HashRouter can resolve it. e.g. /blog -> /#/blog
+  (function () {
+    var path = window.location.pathname.replace(/\/$/, '');
+    var search = window.location.search;
+    if (path && path !== '/index.html') {
+      window.location.replace('/#' + path + search);
+    } else {
+      window.location.replace('/');
+    }
+  })();
+</script>
+</head>
+<body>
+<p>Redirecting to <a href="/">praneethpapishetty.com</a>...</p>
+</body>
+</html>
