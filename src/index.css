@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Mobile: single-column company grid */
+@media (max-width: 480px) {
+  .company-orbit-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile: stack rental booking bar */
+@media (max-width: 560px) {
+  .rental-booking-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rental-booking-input {
+    width: 100%;
+  }
+}
+
+/* Mobile: AT&T single-column stat cards */
+@media (max-width: 480px) {
+  .att-account-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+}
