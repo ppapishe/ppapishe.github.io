@@ -5,7 +5,7 @@ export const personal: PersonalData = {
   title: 'Builder · Datastores · Slack',
   location: 'Kirkland, WA',
   bio: [
-    "I build tools for the people who keep production alive. At Warner Bros. Discovery, that meant DIM — a platform that turned a three-week database provisioning ticket into a twelve-hour self-serve flow across 1,200+ Aurora clusters. Now I'm on Slack's Datastores Foundation team, applying the same playbook to Vitess and MySQL at a much louder scale.",
+    "I build tools for the people who keep production alive. At Warner Bros. Discovery, that meant DIM — a platform that turned a three-week database provisioning ticket into a twelve-hour self-serve flow. Now I'm on Slack's Datastores Foundation team, applying the same playbook to Vitess and MySQL at a much louder scale.",
     'Took the long way in — pharmacy, then chemistry, then databases finally stuck. The work I keep coming back to is the same: spot the friction, ship the tool that eliminates it, move on.',
   ],
   email: 'me@praneethpapishetty.com',
