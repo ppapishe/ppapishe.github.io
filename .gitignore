@@ -27,3 +27,5 @@ coverage
 .gstack/
 .superpowers/
 .vite/
+
+__pycache__/
