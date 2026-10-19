@@ -47,8 +47,9 @@ function windows(): () => void {
       drifts: frags.map((f) => f.querySelector<HTMLElement>('.frag__drift')!).filter(Boolean),
       phase: frags.map(() => rand() * Math.PI * 2),
     };
-    const ax = mobile ? 30 : 38; // vw
-    const ay = mobile ? 18 : 30; // vh
+    // Fragments stay inside their own window: they spread along their row and drift a little
+    // above and below it, never into the window before or after.
+    const ay = mobile ? 18 : 28; // px
     const row = el.querySelector<HTMLElement>('.win__frags') || el;
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -67,9 +68,10 @@ function windows(): () => void {
       tl.fromTo(
         f,
         {
-          x: () => ((rand() - 0.5) * 2 * ax * innerWidth) / 100,
-          y: () => ((rand() - 0.5) * 2 * ay * innerHeight) / 100,
-          opacity: 0.4,
+          // Layout offsets ignore transforms, so this stays right when a resize re-measures it.
+          x: () => rand() * Math.max(0, row.clientWidth - f.offsetWidth) - f.offsetLeft,
+          y: () => (rand() - 0.5) * 2 * ay,
+          opacity: 0,
         },
         { x: 0, y: 0, opacity: 1, ease: ease.out, duration: 1 },
         i * 0.04,
