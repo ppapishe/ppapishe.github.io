@@ -7,8 +7,8 @@ file so the site stays consistent.
 
 - **Subject:** Praneeth Papishetty, storage engineer. 13 years with relational and NoSQL stores.
   Now Senior Software Engineer, Datastores Foundation, Slack.
-- **Audience:** recruiters and hiring managers for server-side storage and data systems roles.
-- **Job of the site:** show depth in data systems through specific, true stories. Link the PDF
+- **Audience:** recruiters and hiring managers for server-side storage and database systems roles.
+- **Job of the site:** show depth in database systems through specific, true stories. Link the PDF
   resume. Later, host blog posts.
 - **Constraints:** black and white only. Minimal. Terminal flavor with Swiss simplicity. No vanity
   stats and no counting numbers. One page plus a blog. Text follows ASD-STE100 in spirit: short
@@ -115,7 +115,7 @@ HERO (sparse, left aligned)
 | Papishetty                    (mega, letters settle)        |
 |                                                             |
 | -- rule ---------------------------------------------------- |
-| meta: role, team, city     | I build data systems and the  |
+| meta: role, team, city     | I build database systems and the  |
 |                            | tools that keep them running. |
 +------------------------------------------------------------+
 

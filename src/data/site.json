@@ -1,12 +1,12 @@
 {
   "person": {
     "name": "Praneeth Papishetty",
-    "headline": "Storage engineer. Relational and NoSQL data systems.",
+    "headline": "Storage engineer. Relational and NoSQL database systems.",
     "role": "Senior Software Engineer",
     "team": "Datastores Foundation",
     "company": "Slack",
     "location": "Kirkland, WA",
-    "tagline": "I build data systems and the tools that keep them running.",
+    "tagline": "I build database systems and the tools that keep them running.",
     "summary": [
       "I have worked with databases for 13 years.",
       "I started as an Oracle DBA. Then I ran Cassandra, ScyllaDB, Couchbase and MySQL NDB at AT&T.",
