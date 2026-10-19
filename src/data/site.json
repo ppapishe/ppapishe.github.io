@@ -34,11 +34,10 @@
       "location": "Remote",
       "fragments": ["Vitess", "MySQL", "vttablet", "Shipyard", "EC2", "containers", "Go", "Python"],
       "lines": [
-        "I am moving Slack's Vitess fleet onto Shipyard, the next-generation EC2 platform.",
-        "I am designing how vttablets are packaged and run as containers, so every tablet in the fleet gets the same configuration from one source."
+        "I work on the platform layer under Slack's Vitess fleet: compute, packaging and configuration."
       ],
       "link": {
-        "label": "About Shipyard, on the Slack engineering blog",
+        "label": "Shipyard, the EC2 platform under this work (Slack engineering blog)",
         "href": "https://slack.engineering/shipyard-how-we-built-slacks-next-generation-ec2-platform/"
       }
     },
