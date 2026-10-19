@@ -90,27 +90,13 @@
 @media (hover: hover) { .flood--inverse:hover { color: var(--c-fg); } }
 .flood--inverse:focus-visible, .flood--inverse:active { color: var(--c-fg); }
 
-/* ---------- footer: replication ---------- */
+/* ---------- footer ---------- */
 .footer { background: var(--c-fg); color: var(--c-bg); padding-block: clamp(4rem, 2rem + 8vw, 9rem) 2rem; }
 .footer :focus-visible { outline-color: var(--c-bg); }
 .label--inverse { color: #b5b5b5; }
-.replication { margin-top: 1.5rem; }
-.mail { font-family: var(--f-display); font-size: clamp(1.6rem, 0.7rem + 4.6vw, 4.75rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; overflow-wrap: anywhere; background: linear-gradient(currentColor 0 0) left bottom / 100% 2px no-repeat; padding-bottom: 0.08em; transition: background-size 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); }
-@media (hover: hover) { .mail:hover { background-size: 100% 5px; } }
-.mail:focus-visible { background-size: 100% 5px; }
-.replicas { margin-top: 1.25rem; color: #b5b5b5; display: grid; gap: 0.15rem; }
-.replica { display: flex; gap: 1.25rem; min-width: 0; }
-.replica__k { flex: none; }
-.replica__v { display: inline-block; overflow-wrap: anywhere; }
-/* At rest the replicas are empty; they copy the primary when it is hovered or focused. */
-.motion .replica__v { clip-path: inset(0 100% 0 0); transition: clip-path 0.15s ease; }
-@media (hover: hover) {
-  .motion .replication:hover .r1 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.05s; }
-  .motion .replication:hover .r2 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.17s; }
-}
-.motion .replication:focus-within .r1 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.05s; }
-.motion .replication:focus-within .r2 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.17s; }
-@media (hover: none) { .motion .replica__v { clip-path: none; } }
+.mail { font-family: var(--f-display); display: inline-block; margin-top: 1rem; font-size: var(--t-l); font-weight: 500; letter-spacing: -0.025em; line-height: 1.05; overflow-wrap: anywhere; background: linear-gradient(currentColor 0 0) left bottom / 100% 1px no-repeat; padding-bottom: 0.1em; transition: background-size 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); }
+@media (hover: hover) { .mail:hover { background-size: 100% 3px; } }
+.mail:focus-visible { background-size: 100% 3px; }
 
 .footer__row { margin-top: clamp(3rem, 2rem + 4vw, 6rem); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; }
 .footer__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }

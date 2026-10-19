@@ -28,13 +28,7 @@ export function Footer() {
     <footer className="footer" id="contact">
       <div className="wrap">
         <h2 className="mono label label--inverse">contact</h2>
-        <div className="replication">
-          <a className="mail" href={`mailto:${email}`}>{email}</a>
-          <div className="replicas mono" aria-hidden="true">
-            <div className="replica r1"><span className="replica__k">replica 1</span><span className="replica__v">{email}</span></div>
-            <div className="replica r2"><span className="replica__k">replica 2</span><span className="replica__v">{email}</span></div>
-          </div>
-        </div>
+        <a className="mail" href={`mailto:${email}`}>{email}</a>
         <div className="footer__row mono">
           <ul className="footer__links">
             <li><a className="utility" href={links.linkedin}>LinkedIn</a></li>

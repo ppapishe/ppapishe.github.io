@@ -26,8 +26,8 @@ file so the site stays consistent.
 | 3. Replication | Every headline is written once, then copied to replica columns with lag | GoldenGate cascade at AT&T, Vitess replicas at Slack | 4 / 4 / 4 / 3 |
 
 Picked 1: it comes from the owner's own story, it survives to every section, and it joins the terminal
-(fragments) and Swiss (compacted blocks) looks the owner chose. From 3 we take one detail: the email
-link replicates.
+(fragments) and Swiss (compacted blocks) looks the owner chose. (A replication effect on the email
+link was tried and removed at the owner's request.)
 
 ## Concept card
 
@@ -46,8 +46,7 @@ Details that carry the concept:
 - **Hero intro:** the letters of the name arrive loose and settle into the name.
 - **Status line (fixed, bottom left):** names the window in view and its state
   ("window 2015 → 2019 · compacting" / "compacted"). Real information: where you are.
-- **Footer email:** replication. Two replica lines copy the address with a short lag on hover or
-  focus.
+- **Footer email:** plain, at heading size. Underline thickens on hover.
 - **404:** "This key expired. TTL reached."
 - **Idle:** loose fragments drift a few pixels on the ticker. Compacted fragments hold still.
 
@@ -88,8 +87,7 @@ Radius 0 everywhere. Hairlines are 1 px ink or line.
 
 ### Motion language
 
-- Eases: `expo.out` for settle, `expo.inOut` for the curtain, `power3.out` for small UI,
-  `steps(n)` for replication only.
+- Eases: `expo.out` for settle, `expo.inOut` for the curtain, `power3.out` for small UI.
 - Durations: hover 0.3 to 0.45 s; settle 1.1 to 1.3 s; curtain 0.8 s each way.
 - Compaction is scrubbed (scrub 0.6) from window top at 85% to 35% of the viewport.
 - One clock: GSAP ticker drives Lenis, ScrollTrigger and the idle drift.
@@ -102,7 +100,7 @@ Radius 0 everywhere. Hairlines are 1 px ink or line.
 |---|---|
 | Nav links | underline draws on hover and focus; current page keeps it |
 | Primary CTA (resume, blog link) | ink floods the box from the left, text inverts |
-| Email | replication lines type out under it |
+| Email | underline thickens on hover and focus |
 | Inline links | underline at rest, thickens on hover |
 | Utility links (social) | underline on hover |
 
@@ -138,8 +136,6 @@ WRITING (one line + CTA)
 
 FOOTER (inverted)
 | me@praneethpapishetty.com                                   |
-| replica 1  me@...                                           |
-| replica 2  me@...                                           |
 | linkedin  github  instagram                     resume.pdf  |
 ```
 
