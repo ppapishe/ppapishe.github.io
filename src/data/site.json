@@ -34,7 +34,8 @@
       "location": "Remote",
       "fragments": ["Vitess", "MySQL", "vttablet", "Shipyard", "EC2", "containers", "Go", "Python"],
       "lines": [
-        "I work on the platform layer under Slack's Vitess fleet: compute, packaging and configuration."
+        "I work on the platform layer under Slack's Vitess fleet: compute, packaging and configuration.",
+        "I build tools that make Vitess and MySQL more reliable, and I automate routine maintenance."
       ],
       "link": {
         "label": "Shipyard, the EC2 platform under this work (Slack engineering blog)",
@@ -56,7 +57,7 @@
         "I co-designed the RDS major-version upgrade pipeline with DMS and CDC. Downtime was near zero. Manual work went down by about 80%.",
         "I wrote composite Terraform modules and a Checkov auto-review. Deployment time for EMEA and APAC went down by about 70%.",
         "I built a database connection tool with Homebrew, Docker and Steampipe. Support volume went down by about 30%.",
-        "I redesigned an architecture and cut its AWS cost by about 80%.",
+        "I redesigned how we deploy Aurora clusters and moved them to a multi-tenant model. AWS cost went down by about 80%.",
         "I automated Cassandra rebuilds and multi-datacenter scaling. Manual work went down by about 60%.",
         "I built a dashboard for HBO Max client metrics, for an internal project."
       ]
