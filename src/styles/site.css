@@ -1,0 +1,151 @@
+/* Project styles. System in DESIGN.md: black and white, Schibsted Grotesk + Martian Mono,
+   12-column grid, radius 0, motion verb "settle and merge". */
+
+:root { --c-loose: #8a8a8a; }
+
+.wrap { width: 100%; max-width: calc(var(--max) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+.mono { font-family: var(--f-mono); font-size: var(--t-xs); font-weight: 300; letter-spacing: 0; line-height: 1.7; }
+.label { color: var(--c-muted); font-weight: 400; }
+
+/* ---------- header ---------- */
+.header { position: sticky; top: 0; z-index: var(--z-header); background: var(--c-bg); border-bottom: 1px solid var(--c-line); }
+.header__inner { display: flex; justify-content: space-between; align-items: center; gap: var(--gutter); min-height: 3.5rem; }
+.header__brand { font-size: var(--t-s); font-weight: 400; padding: 0.5rem 0; min-width: 2.75rem; }
+.header__nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; font-size: var(--t-xs); }
+.header__nav a { padding: 0.5rem 0; }
+
+/* Nav: underline draws on hover; the current page keeps it. */
+.draw { background: linear-gradient(currentColor 0 0) left calc(100% - 0.35rem) / 0% 1px no-repeat; transition: background-size 0.45s cubic-bezier(0.165, 0.84, 0.44, 1); }
+@media (hover: hover) { .draw:hover { background-size: 100% 1px; } }
+.draw:focus-visible, .draw[aria-current='page'] { background-size: 100% 1px; }
+
+/* ---------- hero ---------- */
+.hero { padding-top: clamp(4rem, 2rem + 10vw, 11rem); padding-bottom: clamp(4rem, 2rem + 8vw, 9rem); }
+.hero__name {
+  font-family: var(--f-display); font-size: var(--t-mega); font-weight: 500;
+  line-height: 0.88; letter-spacing: -0.055em; margin-left: -0.06em;
+}
+.hero__line { display: block; }
+.hero__meta { margin-top: clamp(2.5rem, 1.5rem + 4vw, 5rem); padding-top: 1.25rem; border-top: 1px solid var(--c-fg); row-gap: 1.5rem; }
+.hero__who { grid-column: 1 / 5; color: var(--c-muted); }
+.hero__tagline { grid-column: 6 / 13; font-size: var(--t-l); line-height: 1.15; letter-spacing: -0.025em; font-weight: 500; max-width: 18em; }
+
+/* ---------- work: time windows ---------- */
+.work { padding-bottom: clamp(3rem, 2rem + 4vw, 6rem); }
+.section-head { padding-block: 1.25rem clamp(2rem, 1rem + 3vw, 4rem); border-top: 1px solid var(--c-fg); row-gap: 1rem; }
+.section-head .label { grid-column: 1 / 4; }
+.section-head__note { grid-column: 4 / 11; color: var(--c-muted); max-width: 38em; }
+
+.win { padding-block: clamp(2.5rem, 1.5rem + 3vw, 4.5rem); border-top: 1px solid var(--c-line); row-gap: 1rem; }
+.win__meta { grid-column: 1 / 4; display: flex; flex-direction: column; color: var(--c-muted); padding-top: 0.6em; }
+.win__body { grid-column: 4 / 13; min-width: 0; }
+.win__company { font-family: var(--f-display); font-size: var(--t-xl); font-weight: 500; line-height: 0.95; letter-spacing: -0.045em; }
+.win__role { margin-top: 0.75rem; color: var(--c-muted); }
+.win__frags { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: 1.5rem; padding-block: 0.9rem; border-block: 1px solid var(--c-fg); font-size: var(--t-xs); font-weight: 400; }
+.win__frags li { display: inline-block; will-change: auto; }
+.frag__drift { display: inline-block; }
+.win__lines { margin-top: 1.5rem; display: grid; gap: 0.9rem; max-width: 44em; }
+.win__lines li { position: relative; padding-left: 1.5rem; }
+.win__lines li::before { content: '·'; position: absolute; left: 0.25rem; color: var(--c-muted); }
+.win__note { margin-top: 1.25rem; color: var(--c-muted); }
+.win__link { margin-top: 1.25rem; }
+
+/* Inline links: underline at rest, it thickens on hover. */
+.inline { background: linear-gradient(currentColor 0 0) left bottom / 100% 1px no-repeat; transition: background-size 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); padding-bottom: 1px; }
+@media (hover: hover) { .inline:hover { background-size: 100% 3px; } }
+.inline:focus-visible { background-size: 100% 3px; }
+
+/* ---------- stack ---------- */
+.stack { padding-block: clamp(3rem, 2rem + 4vw, 6rem); border-top: 1px solid var(--c-fg); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 1.5rem; }
+.stack .label { grid-column: 1 / 4; padding-top: 0.2rem; }
+.stack__groups { grid-column: 4 / 13; display: grid; }
+.stack__row { display: grid; grid-template-columns: minmax(9rem, 1fr) 3fr; gap: 1rem var(--gutter); padding-block: 1rem; border-bottom: 1px solid var(--c-line); }
+.stack__row:first-child { padding-top: 0; }
+.stack__row dt { color: var(--c-muted); padding-top: 0.25em; }
+.stack__row dd { margin: 0; }
+
+/* ---------- writing ---------- */
+.writing { padding-block: clamp(3rem, 2rem + 4vw, 6rem) clamp(5rem, 3rem + 6vw, 9rem); border-top: 1px solid var(--c-fg); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 1.5rem; }
+.writing .label { grid-column: 1 / 4; padding-top: 0.2rem; }
+.writing__body { grid-column: 4 / 13; }
+.writing__title { font-size: var(--t-l); font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; }
+.writing__text { margin-top: 0.75rem; color: var(--c-muted); max-width: 34em; }
+.writing .flood { margin-top: 2rem; }
+
+/* Primary CTA: ink floods the box from the left and the label inverts. */
+.flood { position: relative; isolation: isolate; overflow: clip; display: inline-flex; align-items: center; min-height: 3rem; padding: 0.75rem 1.25rem; border: 1px solid var(--c-fg); font-family: var(--f-mono); font-size: var(--t-xs); transition: color 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.flood__fill { position: absolute; inset: 0; z-index: -1; background: var(--c-fg); transform-origin: left; scale: 0 1; transition: scale 0.45s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.flood .arrow { display: inline-block; transition: translate 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); }
+@media (hover: hover) {
+  .flood:hover { color: var(--c-bg); }
+  .flood:hover .flood__fill { scale: 1 1; }
+  .flood:hover .arrow { translate: 0.3rem 0; }
+  .flood:hover .arrow--back { translate: -0.3rem 0; }
+}
+.flood:focus-visible, .flood:active { color: var(--c-bg); }
+.flood:focus-visible .flood__fill, .flood:active .flood__fill { scale: 1 1; }
+.flood--inverse { border-color: var(--c-bg); }
+.flood--inverse .flood__fill { background: var(--c-bg); }
+@media (hover: hover) { .flood--inverse:hover { color: var(--c-fg); } }
+.flood--inverse:focus-visible, .flood--inverse:active { color: var(--c-fg); }
+
+/* ---------- footer: replication ---------- */
+.footer { background: var(--c-fg); color: var(--c-bg); padding-block: clamp(4rem, 2rem + 8vw, 9rem) 2rem; }
+.footer :focus-visible { outline-color: var(--c-bg); }
+.label--inverse { color: #b5b5b5; }
+.replication { margin-top: 1.5rem; }
+.mail { font-family: var(--f-display); font-size: clamp(1.6rem, 0.7rem + 4.6vw, 4.75rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; overflow-wrap: anywhere; background: linear-gradient(currentColor 0 0) left bottom / 100% 2px no-repeat; padding-bottom: 0.08em; transition: background-size 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); }
+@media (hover: hover) { .mail:hover { background-size: 100% 5px; } }
+.mail:focus-visible { background-size: 100% 5px; }
+.replicas { margin-top: 1.25rem; color: #b5b5b5; display: grid; gap: 0.15rem; }
+.replica { display: flex; gap: 1.25rem; min-width: 0; }
+.replica__k { flex: none; }
+.replica__v { display: inline-block; overflow-wrap: anywhere; }
+/* At rest the replicas are empty; they copy the primary when it is hovered or focused. */
+.motion .replica__v { clip-path: inset(0 100% 0 0); transition: clip-path 0.15s ease; }
+@media (hover: hover) {
+  .motion .replication:hover .r1 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.05s; }
+  .motion .replication:hover .r2 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.17s; }
+}
+.motion .replication:focus-within .r1 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.05s; }
+.motion .replication:focus-within .r2 .replica__v { clip-path: inset(0 0 0 0); transition: clip-path 0.42s steps(25) 0.17s; }
+@media (hover: none) { .motion .replica__v { clip-path: none; } }
+
+.footer__row { margin-top: clamp(3rem, 2rem + 4vw, 6rem); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.footer__links a { display: inline-block; padding-block: 0.5rem; }
+.utility { text-underline-offset: 0.25em; }
+@media (hover: hover) { .utility:hover { text-decoration: underline; } }
+.footer__base { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgb(255 255 255 / 0.2); color: #b5b5b5; }
+
+/* ---------- status line ---------- */
+.status {
+  position: fixed; left: var(--gutter); bottom: 1rem; z-index: var(--z-status);
+  padding: 0.35rem 0.6rem; background: var(--c-fg); color: var(--c-bg); font-weight: 400;
+  opacity: 0; translate: 0 0.5rem; pointer-events: none;
+  transition: opacity 0.3s ease, translate 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.status.is-on { opacity: 1; translate: 0 0; }
+
+/* ---------- inner pages ---------- */
+.page { min-height: 70svh; padding-block: clamp(4rem, 2rem + 10vw, 10rem) clamp(4rem, 2rem + 6vw, 8rem); }
+.page__title { margin-top: 1.5rem; font-family: var(--f-display); font-size: var(--t-xl); font-weight: 500; line-height: 0.95; letter-spacing: -0.045em; max-width: 12em; }
+.page__text { margin-top: 1.5rem; max-width: 34em; color: var(--c-muted); }
+.page__empty { margin-top: 2.5rem; padding-block: 0.9rem; border-block: 1px solid var(--c-fg); max-width: 34rem; }
+.page .flood { margin-top: 2.5rem; }
+
+/* ---------- phones ---------- */
+@media (max-width: 767px) {
+  .hero__who, .hero__tagline,
+  .section-head .label, .section-head__note,
+  .win__meta, .win__body,
+  .stack .label, .stack__groups,
+  .writing .label, .writing__body { grid-column: 1 / -1; }
+  .win__meta { flex-direction: row; gap: 1.25rem; padding-top: 0; }
+  .stack__row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .hero__name { letter-spacing: -0.05em; }
+  .footer__row { flex-direction: column; align-items: flex-start; }
+  .header__nav { gap: 0.25rem 1rem; }
+  .status { display: none; }
+}

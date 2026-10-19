@@ -1,62 +1,50 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
 import App from '../App'
+import site from '../data/site.json'
 
 beforeEach(() => {
-  window.location.hash = ''
+  window.history.pushState({}, '', '/')
 })
 
-describe('Unified portfolio', () => {
-  it('renders the unified portfolio by default', () => {
+describe('Home', () => {
+  it('renders the name as the only h1', () => {
     render(<App />)
-    expect(screen.getByText('Praneeth Papishetty')).toBeDefined()
-    expect(screen.getByText(/Vitess & MySQL/)).toBeDefined()
+    const h1s = screen.getAllByRole('heading', { level: 1 })
+    expect(h1s).toHaveLength(1)
+    expect(h1s[0]).toHaveTextContent('Praneeth Papishetty')
   })
 
-  it('renders all four era sections', () => {
+  it('renders one time window per role, newest first', () => {
     render(<App />)
-    expect(screen.getAllByText(/Slack · Datastores/).length).toBeGreaterThan(0)
-    expect(screen.getAllByText(/Warner Bros. Discovery/).length).toBeGreaterThan(0)
-    expect(screen.getAllByText(/AT&T/).length).toBeGreaterThan(0)
-    expect(screen.getByText(/Dollar Thrifty → Hertz/)).toBeDefined()
+    const companies = screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)
+    expect(companies).toEqual(site.windows.map((w) => w.company))
   })
 
-  it('renders project cards for each era', () => {
+  it('shows the compaction story at AT&T', () => {
     render(<App />)
-    expect(screen.getByText('Vitess Reliability Tooling')).toBeDefined()
-    expect(screen.getByText('DIM — Database Infra Manager')).toBeDefined()
-    expect(screen.getByText('AT&T eSUPPORT — Oracle SME')).toBeDefined()
-    expect(screen.getByText('Oracle SME — Reservations Estate')).toBeDefined()
+    expect(screen.getByText(/time-window compaction/)).toBeInTheDocument()
   })
 
-  it('expands project card on click', async () => {
-    const user = userEvent.setup()
+  it('links the resume, email and social profiles', () => {
     render(<App />)
-    const btn = screen.getByText('Vitess Reliability Tooling').closest('button')!
-    expect(btn.getAttribute('aria-expanded')).toBe('false')
-    await user.click(btn)
-    expect(btn.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByRole('link', { name: 'Download resume.pdf' })).toHaveAttribute('href', '/resume.pdf')
+    expect(screen.getByRole('link', { name: site.person.email })).toHaveAttribute('href', `mailto:${site.person.email}`)
+    expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', site.person.links.linkedin)
+    expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', site.person.links.github)
+  })
+})
+
+describe('Routes', () => {
+  it('renders the writing page at /blog', () => {
+    window.history.pushState({}, '', '/blog')
+    render(<App />)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(site.writing.title)
   })
 
-  it('renders resume section', () => {
+  it('renders the 404 page for unknown paths', () => {
+    window.history.pushState({}, '', '/no-such-page')
     render(<App />)
-    expect(screen.getByText('Grab the PDF')).toBeDefined()
-    expect(screen.getByText('Cassandra Certified Professional')).toBeDefined()
-  })
-
-  it('renders social links in header', () => {
-    render(<App />)
-    expect(screen.getByLabelText('LinkedIn')).toBeDefined()
-    expect(screen.getByLabelText('GitHub')).toBeDefined()
-    expect(screen.getByLabelText('Instagram')).toBeDefined()
-  })
-
-  it('unknown hash route redirects to unified portfolio', async () => {
-    window.location.hash = '#/unknown-company'
-    render(<App />)
-    await waitFor(() => {
-      expect(screen.getByText('Praneeth Papishetty')).toBeDefined()
-    })
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('This key expired.')
   })
 })

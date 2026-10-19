@@ -1,0 +1,33 @@
+/* Design tokens. Values come from DESIGN.md (art direction). */
+:root {
+  --c-bg: #ffffff;
+  --c-fg: #0a0a0a;
+  --c-muted: #5c5c5c;
+  --c-line: rgb(10 10 10 / 0.14);
+  --c-accent: #0a0a0a;
+  --c-curtain: #0a0a0a;
+
+  --f-display: 'Schibsted Grotesk', system-ui, sans-serif;
+  --f-body: 'Schibsted Grotesk', system-ui, sans-serif;
+  --f-mono: 'Martian Mono', ui-monospace, monospace;
+
+  /* Fluid type scale (min @ 375px → max @ 1440px) */
+  --t-mega: clamp(3.4rem, 0.9rem + 11.5vw, 11rem);
+  --t-xl: clamp(2.25rem, 1.3rem + 4vw, 5rem);
+  --t-l: clamp(1.6rem, 1.2rem + 1.7vw, 2.75rem);
+  --t-m: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  --t-body: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+  --t-s: 0.875rem;
+  --t-xs: 0.75rem;
+
+  --u: clamp(0.5rem, 0.35rem + 0.6vw, 1rem);
+  --gutter: clamp(1.25rem, 0.6rem + 1.8vw, 2.5rem);
+  --max: 1240px;
+
+  --radius: 0px;
+
+  --z-content: 1;
+  --z-status: 40;
+  --z-header: 50;
+  --z-curtain: 90;
+}

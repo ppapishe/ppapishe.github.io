@@ -1,9 +1,14 @@
 import '@testing-library/jest-dom'
 
-// jsdom doesn't implement IntersectionObserver (used by framer-motion whileInView)
-const mockIntersectionObserver = vi.fn().mockImplementation(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
+// jsdom has no matchMedia. Report reduced motion, so the engine skips Lenis, splits and scrubs
+// and every element renders in its final, readable state.
+window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+  matches: query.includes('prefers-reduced-motion'),
+  media: query,
+  onchange: null,
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
+  dispatchEvent: vi.fn(),
 }))
-window.IntersectionObserver = mockIntersectionObserver

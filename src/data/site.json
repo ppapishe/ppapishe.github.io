@@ -1,0 +1,115 @@
+{
+  "person": {
+    "name": "Praneeth Papishetty",
+    "headline": "Storage engineer. Relational and NoSQL data systems.",
+    "role": "Senior Software Engineer",
+    "team": "Datastores Foundation",
+    "company": "Slack",
+    "location": "Kirkland, WA",
+    "tagline": "I build data systems and the tools that keep them running.",
+    "summary": [
+      "I have worked with databases for 13 years.",
+      "I started as an Oracle DBA. Then I ran Cassandra, ScyllaDB, Couchbase and MySQL NDB at AT&T.",
+      "At Warner Bros. Discovery, I built the platform that deployed databases for HBO Max.",
+      "Now I work on Vitess and MySQL at Slack."
+    ],
+    "email": "me@praneethpapishetty.com",
+    "resumeEmail": "praneeth1962@gmail.com",
+    "phone": "(270) 438-6440",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/praneethpapishetty/",
+      "github": "https://github.com/ppapishe",
+      "instagram": "https://www.instagram.com/praneeth1507/"
+    },
+    "site": "https://praneethpapishetty.com"
+  },
+  "windows": [
+    {
+      "id": "slack",
+      "company": "Slack",
+      "role": "Senior Software Engineer",
+      "team": "Datastores Foundation",
+      "start": "2026-03",
+      "end": "present",
+      "location": "Remote",
+      "fragments": ["Vitess", "MySQL", "vttablet", "Shipyard", "EC2", "containers", "Go", "Python"],
+      "lines": [
+        "I move Slack's vttablets to Shipyard, the new EC2 platform.",
+        "I build tools that run vttablets in containers. This makes configuration management easier.",
+        "I write tooling in Go and Python."
+      ],
+      "link": {
+        "label": "About Shipyard, on the Slack engineering blog",
+        "href": "https://slack.engineering/shipyard-how-we-built-slacks-next-generation-ec2-platform/"
+      }
+    },
+    {
+      "id": "wbd",
+      "company": "Warner Bros. Discovery",
+      "role": "Sr. Staff Software Engineer",
+      "team": "Database Reliability, HBO Max",
+      "start": "2019-01",
+      "end": "2026-03",
+      "location": "Remote",
+      "note": "Joined HBO through Metis Software Solutions in 2019. Full time at WBD from 2021.",
+      "fragments": ["Aurora", "PostgreSQL", "DynamoDB", "Cassandra", "Terraform", "Backstage", "Argo", "DMS", "CDC"],
+      "lines": [
+        "I built DIM, a self-service platform for database deployments. Provisioning time went from 3 weeks to 12 hours. Support requests went down by about 50%. Three other teams now use the same pattern.",
+        "I co-designed the RDS major-version upgrade pipeline with DMS and CDC. Downtime was near zero. Manual work went down by about 80%.",
+        "I wrote composite Terraform modules and a Checkov auto-review. Deployment time for EMEA and APAC went down by about 70%.",
+        "I built a database connection tool with Homebrew, Docker and Steampipe. Support volume went down by about 30%.",
+        "I redesigned an architecture and cut its AWS cost by about 80%.",
+        "I automated Cassandra rebuilds and multi-datacenter scaling. Manual work went down by about 60%.",
+        "I built a dashboard for HBO Max client metrics, for an internal project."
+      ]
+    },
+    {
+      "id": "att",
+      "company": "AT&T",
+      "role": "Database Analyst / DBA",
+      "team": "eSUPPORT",
+      "start": "2015-01",
+      "end": "2019-01",
+      "location": "Dallas, TX",
+      "fragments": ["Oracle RAC", "GoldenGate", "Cassandra", "TTL", "TWCS", "ScyllaDB", "Couchbase", "MySQL NDB"],
+      "lines": [
+        "I fixed unpredictable compaction on DataStax Cassandra. TTLs ranged from seconds to days. The app team moved to predictable TTLs. I moved the tables to time-window compaction. Compaction time, CPU load and I/O load went down.",
+        "I tuned and automated Cassandra repairs with Prometheus and Grafana. Repair time went down by about 80%.",
+        "I put Oracle GoldenGate replication into production: one-way, two-way and cascade, with Veridata checks.",
+        "I ran ScyllaDB, Couchbase, MariaDB and MySQL NDB clusters in production.",
+        "I planned capacity for each iPhone launch, three months ahead."
+      ]
+    },
+    {
+      "id": "hertz",
+      "company": "Dollar Thrifty / Hertz",
+      "role": "Oracle DBA",
+      "team": "Reservations",
+      "start": "2013-05",
+      "end": "2015-01",
+      "location": "Tulsa, OK",
+      "fragments": ["Oracle 11g", "RAC", "AWR", "ADDM", "TKPROF", "SSIS", "MSSQL"],
+      "lines": [
+        "I ran more than 30 Oracle instances. One production database was 14 TB.",
+        "I tuned SQL and indexes with AWR, ADDM and TKPROF. Peak-hour latency on bookings went down by about 50%.",
+        "I archived old reservations from Oracle to MSSQL with SSIS.",
+        "I led the schedule for an offshore team of four DBAs."
+      ]
+    }
+  ],
+  "skills": [
+    { "group": "Datastores", "items": ["Vitess", "MySQL", "PostgreSQL", "Aurora", "Oracle RAC", "Cassandra", "ScyllaDB", "DynamoDB", "Couchbase", "ElastiCache", "MongoDB", "Redis"] },
+    { "group": "Storage internals", "items": ["Compaction tuning", "TTL design", "Replication", "Repairs", "Query tuning", "Indexing", "Zero-downtime migrations"] },
+    { "group": "Infrastructure", "items": ["AWS", "GCP", "Kubernetes", "Terraform", "Terragrunt", "Argo Workflows", "Jenkins", "GitHub Actions"] },
+    { "group": "Languages", "items": ["Python", "Go", "SQL", "Shell", "Groovy"] },
+    { "group": "Observability", "items": ["Prometheus", "Grafana", "Splunk"] }
+  ],
+  "facts": [
+    { "key": "Education", "value": "M.S. Information Systems Technology, Wilmington University" },
+    { "key": "Certification", "value": "Cassandra Certified Professional" }
+  ],
+  "writing": {
+    "title": "Notes from the data layer",
+    "body": "Posts about compaction, replication and migrations. The first posts are in progress."
+  }
+}

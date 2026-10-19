@@ -29,3 +29,4 @@ coverage
 .vite/
 
 __pycache__/
+.shots
