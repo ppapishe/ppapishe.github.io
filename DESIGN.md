@@ -21,12 +21,12 @@ file so the site stays consistent.
 
 | | Idea | Anchor | O / F / Fe / P |
 |---|---|---|---|
-| **1. Compaction** (picked) | The career is a set of time windows. Each window starts as loose fragments and compacts into one block as you scroll | His TWCS fix for Cassandra at AT&T; compaction as a real storage mechanism | 4 / 5 / 4 / 2 |
+| **1. Compaction** (picked) | The career is a set of time windows. Each window starts as loose fragments and compacts into one block as you scroll | The TWCS fix for Cassandra at AT&T; compaction as a real storage mechanism | 4 / 5 / 4 / 2 |
 | 2. EXPLAIN | The homepage is a query plan of the career, read bottom up | Years of query tuning | 4 / 4 / 4 / 3 |
 | 3. Replication | Every headline is written once, then copied to replica columns with lag | GoldenGate cascade at AT&T, Vitess replicas at Slack | 4 / 4 / 4 / 3 |
 
-Picked 1: it comes from his own story, it survives to every section, and it joins the terminal
-(fragments) and Swiss (compacted blocks) looks he chose. From 3 we take one detail: the email
+Picked 1: it comes from the owner's own story, it survives to every section, and it joins the terminal
+(fragments) and Swiss (compacted blocks) looks the owner chose. From 3 we take one detail: the email
 link replicates.
 
 ## Concept card

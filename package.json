@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/postbuild.mjs",
+    "build": "tsc --noEmit -p tsconfig.app.json && vite build && node scripts/postbuild.mjs",
     "preview": "vite preview",
+    "build:preview": "node scripts/preview.mjs",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^6.9.1",

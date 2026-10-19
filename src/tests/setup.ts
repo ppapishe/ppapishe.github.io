@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
 // jsdom has no matchMedia. Report reduced motion, so the engine skips Lenis, splits and scrubs
 // and every element renders in its final, readable state.
